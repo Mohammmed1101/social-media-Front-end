@@ -81,11 +81,11 @@ export default function DirectMessage() {
                                                                 <Link to={`/direct-message/${friend._id}`} style={{ color: "black", textDecoration: "none" }}>
                                                                     <Row className="d-flex justify-content-between">
 
-                                                                        <Col className="d-flex flex-row">
-                                                                            <img src={friend.avatar} className="d-flex align-self-center rounded-circle" width="60" height="55" />
+                                                                        <Col className="d-flex flex-row" style={{paddingRight : "0px"}}>
+                                                                            <img src={friend.avatar} style={{paddingRight : "0px"}} className="d-flex align-self-center rounded-circle" width="60" height="55" />
                                                                         </Col>
-                                                                        <Col className="pt-1">
-                                                                            <span className="smalltext-muted">{friend.firstName} {friend.lastName}</span>
+                                                                        <Col className="pt-1 m-auto">
+                                                                            <span className="small">{friend.firstName} {friend.lastName}</span>
                                                                           
                                                                         </Col>
 

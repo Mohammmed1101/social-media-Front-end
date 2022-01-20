@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import AllPrivatePosts from "../components/AllPrivatePosts"
 import NavbarHome from "../components/NavbarHome"
-import NewPost from "../components/NewPost"
+import NewPrivatePost from "../components/NewPrivatePost"
 import SideBar from "../components/SideBar"
 import PostsContext from "../utils/PostsContext"
 
@@ -16,7 +16,7 @@ export default function PrivatePost(props) {
         <>
             <NavbarHome />
             <SideBar />
-            <NewPost />
+            <NewPrivatePost />
             <AllPrivatePosts />
 
         </>

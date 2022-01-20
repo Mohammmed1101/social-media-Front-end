@@ -98,7 +98,14 @@ export default function PermanentDrawerLeft() {
                 <ListItemText primary="logout" sx={{ color: "black", textDecoration: "none" }} onClick={logout} />
               </ListItem>
             </Link>
-          ) : null }
+          ) : <Link to="/login">
+          <ListItem button>
+            <ListItemIcon>
+              <LoginIcon />
+            </ListItemIcon>
+            <ListItemText primary="login" sx={{ color: "black", textDecoration: "none" }} />
+          </ListItem>
+        </Link> }
         </List>
       </Drawer>
     </ThemeProvider>
