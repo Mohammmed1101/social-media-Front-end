@@ -1,0 +1,11 @@
+
+
+ul li a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+
+ul li Delete {
+    color: red;
+}
