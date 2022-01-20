@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";
 import PostsContext from "../utils/PostsContext";
 import AddComment from "./AddComment";
@@ -52,13 +53,13 @@ export default function AllPrivatePosts() {
                                                 <br />
                                             </Col>
                                         </Link>
-
+                                        <hr />
                                         <Col className="d-flex justify-content-between align-items-center" >
                                             <Col className="d-flex flex-row icons d-flex align-tems-center" >
 
                                                 {liked ?
-                                                    <AiFillHeart onClick={() => postLike(post._id)} style={{ fontSize: "30px", color: "red" }} /> :
-                                                    <AiOutlineHeart onClick={() => postLike(post._id)} style={{ fontSize: "30px" }} />
+                                                    <MdFavorite className="ms-3" onClick={() => postLike(post._id)} style={{ fontSize: "30px", color: "red" }} /> :
+                                                    <MdOutlineFavoriteBorder onClick={() => postLike(post._id)} style={{ fontSize: "30px" }} />
                                                 }
                                                 <span className="m-auto">{post.likes?.length} Likes</span>
                                                 <Link to={`/one-post/${post._id}`} style={{ color: "black", textDecoration: "none" }}>
@@ -70,6 +71,7 @@ export default function AllPrivatePosts() {
                                                 <span className="m-auto">{post.comments?.length} comments</span>
                                             </Col>
                                         </Col>
+                                        <hr />
                                         <br />
 
                                         <Col>
@@ -91,8 +93,8 @@ export default function AllPrivatePosts() {
                         })}
                     </Col>
                 </Col>
-            </Row>
+            </Row >
 
-        </center>)
+        </center >)
 }
 

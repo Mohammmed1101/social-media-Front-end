@@ -81,11 +81,11 @@ export default function DirectMessage() {
                                                                 <Link to={`/direct-message/${friend._id}`} style={{ color: "black", textDecoration: "none" }}>
                                                                     <Row className="d-flex justify-content-between">
 
-                                                                        <Col className="d-flex flex-row" style={{paddingRight : "0px"}}>
-                                                                            <img src={friend.avatar} style={{paddingRight : "0px"}} className="d-flex align-self-center rounded-circle" width="60" height="55" />
+                                                                        <Col className="d-flex flex-row" md="2">
+                                                                            <img src={friend.avatar} className="rounded-circle" width="60" height="55" />
                                                                         </Col>
                                                                         <Col className="pt-1 m-auto">
-                                                                            <span className="small">{friend.firstName} {friend.lastName}</span>
+                                                                            <span >{friend.firstName} {friend.lastName}</span>
                                                                           
                                                                         </Col>
 
@@ -112,8 +112,8 @@ export default function DirectMessage() {
                                                     <Col className="pt-3 pe-3" >
 
                                                         <Col className="d-flex flex-row justify-content-start ">
-                                                            <img src={friend.avatar} className="rounded-circle" width="60" height="55" />
-                                                            <span className="mb-0 ms-3 ">{friend.firstName} {friend.lastName}</span>
+                                                            <img src={friend.avatar} className="rounded-circle " width="60" height="55" />
+                                                            <span className="mb-0 ms-3 pt-3">{friend.firstName} {friend.lastName}</span>
 
 
                                                         </Col>
@@ -130,7 +130,7 @@ export default function DirectMessage() {
                                                             {message.sender_id == profile._id ? (
                                                                 <li >                                              {/* my message */}
                                                                     <Col className="d-flex flex-row justify-content-start">
-                                                                        <img src={profile.avatar} width="40" height="35" className="rounded-circle" />
+                                                                        <img src={profile.avatar} width="35" height="35" className="rounded-circle" />
                                                                         <Col>
                                                                             <p className="small p-2 ms-3 mb-1 rounded-3" style={{ backgroundColor: "#f5f6f7" ,   textAlign: "left" }}>{message.message}</p>
                                                                             <p className="small ms-3 mb-3 rounded-3 text-muted float-end ">{(new Date(message.Date)).toDateString()} {(new Date(message.Date)).toLocaleTimeString()} </p>
@@ -149,7 +149,7 @@ export default function DirectMessage() {
                                                                             </p>
                                                                             <p className="small p-2 me-3 mb-1 rounded-3 text-muted"> {(new Date(message.Date)).toDateString()} {(new Date(message.Date)).toLocaleTimeString()}</p>
                                                                         </Col>
-                                                                        <img src={friend.avatar} width="40" height="35" className="rounded-circle" />
+                                                                        <img src={friend.avatar} width="35" height="35" className="rounded-circle" />
                                                                     </Col>
                                                                 </li>
                                                             )}

@@ -6,6 +6,7 @@ import FollowersModal from "../components/Followers"
 import Navbar from "../components/Navbar"
 import FriendsModal from "../components/FriendsModal"
 import EditProfile from "../components/EditProfile"
+import { Link } from "react-router-dom"
 
 
 
@@ -76,8 +77,9 @@ export default function Profile() {
 
                 <h1 className="mt-5">Posts</h1>
               </Col>
+            
               {profile?.posts.map(myPosts => (
-
+                <Link to={`/one-post/${myPosts._id}`} style={{ color: "black", textDecoration: "none" }}>
                 <Card style={{ width: '50em' }}>
                   <Card.Body>
                     <Card.Text>
@@ -89,8 +91,9 @@ export default function Profile() {
                   </center>
                   <br />
                 </Card>
+                </Link>
+))}
 
-              ))}
 
 
             </Col>

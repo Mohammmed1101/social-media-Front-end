@@ -3,15 +3,15 @@ import { Col, FloatingLabel, Form, Row, Button } from "react-bootstrap"
 import { BiImageAdd } from "react-icons/bi"
 import PostsContext from "../utils/PostsContext"
 
-export default function NewPrivatePosts(props) {
-    const { postId } = props
-    const { addPost } = useContext(PostsContext)
+export default function NewPrivatePost() {
+ 
+    const { addPostPrivate } = useContext(PostsContext)
     return (
 
         <Row className="container ms-5 mb-3 mt-2" >
             <Col className="d-flex justify-content-center row" >
                 <Col className="col-md-8" >
-                    <Form onSubmit={addPost}>
+                    <Form onSubmit={addPostPrivate}>
                         <FloatingLabel controlId="floatingTextarea2" label="Add Post" style={{ marginLeft: "50px" }} >
                             <Form.Control
                                 as="textarea"

@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from 'axios';
 import PostsContext from "./utils/PostsContext"
@@ -146,7 +146,7 @@ export default function App() {
       const postBody = {
         description: form.elements.description.value,
         image: form.elements.image.value,
-        type: form.elements.type.value,
+        type: "Public",
       }
       form.reset()
       await axios.post("http://localhost:5000/api/posts", postBody, {
@@ -155,6 +155,30 @@ export default function App() {
         },
       })
       getPublicPost()
+
+      getProfile()
+      toast("added post");
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+  const addPostPrivate = async e => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const postBody = {
+        description: form.elements.description.value,
+        image: form.elements.image.value,
+        type: "Private",
+      }
+      form.reset()
+      await axios.post("http://localhost:5000/api/posts", postBody, {
+        headers: {
+          Authorization: localStorage.tokenSocial
+        },
+      })
+
       getPrivatePost()
       getProfile()
       toast("added post");
@@ -163,7 +187,6 @@ export default function App() {
       else console.log(error)
     }
   }
-
 
   //confirm edit post
   const confirmEditPost = async (e, postId) => {
@@ -451,6 +474,7 @@ export default function App() {
   const logout = () => {
     localStorage.removeItem("tokenSocial")
     console.log("logout success")
+    setProfile(null)
   }
   const store = {
     signup,
@@ -487,13 +511,13 @@ export default function App() {
     errorRequest,
     logout,
     editProfile,
-
     comments,
     addComment,
     postLike,
     favouriteMessage,
     deleteComment,
     privatePosts,
+    addPostPrivate,
 
 
 
@@ -515,16 +539,16 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={localStorage.tokenSocial ? <Profile /> : <Navigate to="/login" />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/profile/:username" element={<UserProfile />} />
+        <Route path="/profile/:username" element={localStorage.tokenSocial ? <UserProfile /> : <Navigate to="/login" />} />
         <Route path="/email_verified/:token" element={<EmailVerified />} />
-        <Route path="/one-post/:postId" element={<OnePost />} />
-        <Route path="/message" element={<Message />} />
-        <Route path="/direct-message" element={<DirectMessage />} />
-        <Route path="/direct-message/:receiveId" element={<DirectMessage />} />
-        <Route path="/private-posts" element={<PrivatePost />} />
+        <Route path="/one-post/:postId" element={localStorage.tokenSocial ? <OnePost /> : <Navigate to="/login" />} />
+        <Route path="/message" element={localStorage.tokenSocial ? <Message /> : <Navigate to="/login" />} />
+        <Route path="/direct-message" element={localStorage.tokenSocial ? <DirectMessage /> : <Navigate to="/login" />} />
+        <Route path="/direct-message/:receiveId" element={localStorage.tokenSocial ? <DirectMessage /> : <Navigate to="/login" />} />
+        <Route path="/private-posts" element={localStorage.tokenSocial ? <PrivatePost /> : <Navigate to="/login" />} />
       </Routes>
     </PostsContext.Provider >
   )

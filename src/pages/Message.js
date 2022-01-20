@@ -51,8 +51,8 @@ export default function Message() {
               <Col>
                 <Card.Title>Sent Message</Card.Title>
                 {profile?.sent.map(senTmessage => (
-                  <Card.Text className="card col-md-5" style={{ fontSize: "large", height: "40px",border: "1px solid gray", borderRadius: "6px"  }}>
-                   <Col className="container">
+                  <Card.Text style={{ fontSize: "large", height: "40px",border: "1px solid gray", borderRadius: "6px" , width: "fit-content" , blockSize: "fit-content" , margin : "15px" }}>
+                   <Col className="container" >
                    {senTmessage.message}
                    </Col> 
                   </Card.Text>
@@ -65,7 +65,7 @@ export default function Message() {
                   <Card.Title>Receive Message</Card.Title>
                   <Col>
                     {profile?.receive.map(recMessage => (
-                      <Card.Text style={{ fontSize: "large", height: "60px",border: "1px solid gray", borderRadius: "6px"  }}>
+                      <Card.Text style={{ fontSize: "large", height: "60px",border: "1px solid gray", borderRadius: "6px" , width: "fit-content" , blockSize: "fit-content" , margin : "15px" }}>
                         <Col className="container">
                           {recMessage.message} <span className="d-flex  justify-content-end" style={{ fontSize: "25px" }}>
                             {profile?.favourite.find(favourite => favourite._id == recMessage._id) ? <MdFavorite style={{ color: "red" }} onClick={() => favouriteMessage(recMessage._id)} />
@@ -84,7 +84,7 @@ export default function Message() {
                   <Col>
                     <Card.Title>Favourite Message</Card.Title>
                     {profile?.favourite.map(favMessage => (
-                      <Card.Text style={{ fontSize: "large", height: "40px",border: "1px solid gray", borderRadius: "6px"  }}>
+                      <Card.Text style={{ fontSize: "large", height: "40px",border: "1px solid gray", borderRadius: "6px"  , width: "fit-content" , blockSize: "fit-content" , margin : "15px"  }}>
                        
                        <Col className="container">
                         {favMessage.message}

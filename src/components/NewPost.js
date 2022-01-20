@@ -3,8 +3,8 @@ import { Col, FloatingLabel, Form, Row, Button } from "react-bootstrap"
 import { BiImageAdd } from "react-icons/bi"
 import PostsContext from "../utils/PostsContext"
 
-export default function NewPost(props) {
-    const { postId } = props
+export default function NewPost() {
+    
     const { addPost } = useContext(PostsContext)
     return (
 
@@ -38,16 +38,6 @@ export default function NewPost(props) {
                                 <Col className="d-flex flex-row justify-content-between border-top" >
                                     <Col className="d-flex flex-row">
 
-
-                                        <Col className="align-items-center p-2" >
-
-
-                                            <Form.Select size="sm" name="type">
-                                                <option>Type Post </option>
-                                                <option>Private</option>
-                                                <option>Public</option>
-                                            </Form.Select>
-                                        </Col>
 
                                     </Col>
                                     <Col >

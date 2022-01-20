@@ -20,6 +20,8 @@ export default function NavbarHome(props) {
 
       <Popover.Header as="h3">Request</Popover.Header>
       <Popover.Body>
+        {profile?.request.length == 0 ? 
+        <h2>no requests</h2> : null}
         {profile?.request.map(requestP => (
       
           < Card className = "mb-1" >

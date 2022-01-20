@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";
 import PostsContext from "../utils/PostsContext";
 import AddComment from "./AddComment";
@@ -13,7 +14,7 @@ export default function AllPosts() {
 
 
 
-  
+
 
 
 
@@ -58,34 +59,35 @@ export default function AllPosts() {
                                             </Col>
                                         </Link>
 
+                                        <hr />
                                         <Col className="d-flex justify-content-between align-items-center" >
                                             <Col className="d-flex flex-row icons d-flex align-tems-center" >
-                                               
-                                               {liked ? 
-                                               <AiFillHeart onClick={() => postLike(post._id)} style={{ fontSize: "30px" , color : "red"}} /> :
-                                               <AiOutlineHeart onClick={() => postLike(post._id)} style={{ fontSize: "30px"  }} />
-                        }
+
+                                                {liked ?
+                                                    <MdFavorite className="ms-3" onClick={() => postLike(post._id)} style={{ fontSize: "30px", color: "red" }} /> :
+                                                    <MdOutlineFavoriteBorder onClick={() => postLike(post._id)} style={{ fontSize: "30px" }} />
+                                                }
                                                 <span className="m-auto">{post.likes?.length} Likes</span>
                                                 <Link to={`/one-post/${post._id}`} style={{ color: "black", textDecoration: "none" }}>
-                                                <FaRegComment size="30px" />
-                                            </Link>
-                                                </Col>
+                                                    <FaRegComment size="30px" />
+                                                </Link>
+                                            </Col>
                                             <Col className="d-flex flex-row muted-color" >
 
                                                 <span className="m-auto">{post.comments?.length} comments</span>
                                             </Col>
                                         </Col>
-                                        <br />
+                                        <hr />
 
                                         <Col>
-                                            {comment?
-                                            <Col className="d-flex flex-row mb-2"><img src={comment?.owner?.avatar} width="40" height="40" className="rounded-circle" />
-                                                <Col className="d-flex flex-column ml-2"><span style={{ fontWeight: "600" }}>{comment?.owner?.username}</span>
-                                                    <small style={{ fontSize: "15px" }}> {comment?.comment}</small>
+                                            {comment ?
+                                                <Col className="d-flex flex-row mb-2"><img src={comment?.owner?.avatar} width="40" height="40" className="rounded-circle" />
+                                                    <Col className="d-flex flex-column ml-2"><span style={{ fontWeight: "600" }}>{comment?.owner?.username}</span>
+                                                        <small style={{ fontSize: "15px" }}> {comment?.comment}</small>
 
+                                                    </Col>
                                                 </Col>
-                                            </Col>
-                        : null } 
+                                                : null}
                                         </Col>
                                         <AddComment postId={post._id} />
 

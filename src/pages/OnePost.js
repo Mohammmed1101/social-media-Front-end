@@ -71,18 +71,20 @@ export default function OnePost() {
                     <Col className="col-md-6">
                         <Col className="card" >
                             <Col className="d-flex justify-content-between p-2 px-3">
-                                {/* <Link to={`/profile/${postOne.owner?.username}`} style={{ color: "black", textDecoration: "none" }}> */}
                                 <Col className="d-flex flex-row align-items-center">
+                                    <Link to={`/profile/${postOne?.owner?.username}`} style={{ color: "black", textDecoration: "none" }}>
                                         <img src={postOne?.owner.avatar} width="50" height="50" className="rounded-circle" />
-                                        <Col className="d-flex flex-column ml-2" >
+                                    </Link>
+                                    <Col className="d-flex flex-column ml-2" >
+                                        <Link to={`/profile/${postOne?.owner?.username}`} style={{ color: "black", textDecoration: "none" }}>
                                             <span className="font-weight-bold">{postOne?.owner.firstName} {postOne?.owner.lastName}</span>
-                                        </Col>
-                                        <Col className="d-flex flex-row me-10 mt-1" style={{ flexGrow: "revert" }}>
+                                        </Link>
+                                    </Col>
+                                    <Col className="d-flex flex-row me-10 mt-1" style={{ flexGrow: "revert" }}>
 
-                                            <FaEllipsisV id="menu-posts" />
+                                        <FaEllipsisV id="menu-posts" />
 
-                                    {/* </Link> */}
-                                        </Col>
+                                    </Col>
                                 </Col>
                             </Col>
                             <hr />
@@ -93,7 +95,9 @@ export default function OnePost() {
                                 <Col className="d-flex justify-content-between align-items-center" >
                                     <Col className="d-flex flex-row icons d-flex align-tems-center" >
                                         {liked ? <MdFavorite className="ms-3" onClick={() => postLike(postOne?._id)}
-                                            style={{ fontSize: "30px", color: "red" }} /> : <MdOutlineFavoriteBorder className="ms-3" onClick={() => postLike(postOne?._id)} style={{ fontSize: "30px" }} />}
+                                            style={{ fontSize: "30px", color: "red" }} />
+                                            : <MdOutlineFavoriteBorder
+                                                className="ms-3" onClick={() => postLike(postOne?._id)} style={{ fontSize: "30px" }} />}
                                         <span className="m-auto">{postOne?.likes.length} Likes</span>
                                         <FaRegComment size="30px" /></Col>
                                     <Col className="d-flex flex-row muted-color" >
