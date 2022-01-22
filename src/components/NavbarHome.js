@@ -30,11 +30,11 @@ export default function NavbarHome(props) {
             <Col className="d-flex flex-row">
 
 
-              <img src={requestP.response_id.avatar} className="rounded-circle h-4" width="40" />
+              <img src={requestP.sender_id.avatar} className="rounded-circle h-4" width="40" />
             </Col>
             <Col className="d-flex flex-column ms-1">
-              <span>{requestP.response_id.firstName} {requestP.response_id.lastName}</span>
-              @{requestP.response_id.username}
+              <span>{requestP.sender_id.firstName} {requestP.sender_id.lastName}</span>
+              @{requestP.sender_id.username}
 
             </Col>
             <Col className="d-flex flex-row justify-content-between">

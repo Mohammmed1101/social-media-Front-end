@@ -89,7 +89,7 @@ export default function UserProfile() {
                       <Link to={`/direct-message/${userProfile._id}`}>
                         <Button className="mt-10 btn btn-primary btn-md">Direct Message</Button>
                       </Link>
-                      : userProfile.request.find(request => request.response_id == profile?._id) ?
+                      : userProfile.request.find(request => request.sender_id == profile?._id) ?
                         <Button disabled onClick={() => getRequest(userProfile._id)} >Request</Button>
                         : <Button className="mt-10 btn btn-primary btn-md"
                           onClick={() => getRequest(userProfile._id)} >Request</Button>

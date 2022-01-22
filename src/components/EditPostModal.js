@@ -31,7 +31,7 @@ export default function EditPostModal(props) {
               Image
             </Form.Label>
             <Col md="8">
-              <Form.Control type="url" name="image" defaultValue={post.image} required />
+              <Form.Control type="url" name="image" defaultValue={post.image}  />
             </Col>
           </Form.Group>
         </Modal.Body>
