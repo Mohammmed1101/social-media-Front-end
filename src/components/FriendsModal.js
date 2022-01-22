@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Row, Form, Button, Col, Modal, Card } from "react-bootstrap";
 
-import PostsContext from "../utils/PostsContext";
 
 export default function Friends(props) {
     const { show, setShow, profile } = props
@@ -24,7 +23,7 @@ export default function Friends(props) {
                                     <Col><span className="fw-bold">@{friendsUser.username}</span></Col>
                                 </Col>
                             </Col>
-                            {/* <Col> <Button className="btn btn-sm ml-5">Follow</Button> </Col> */}
+                           
                         </Row>
                     </Card>
                 ))}

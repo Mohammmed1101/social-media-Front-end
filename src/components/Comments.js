@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 export default function Comments(props) {
 
     const { commentPost, commentId, postId } = props
-    const { deleteComment } = useContext(PostsContext)
+
     const [commentDelShow, setCommentDelShow] = useState(false)
 
     useEffect(() => {
@@ -18,12 +18,12 @@ export default function Comments(props) {
             menuPosition: 'belowLeft', // default value, can be omitted
             actions: [{
                 name: 'Delete',
-                onClick: () => deleteComment(commentPost.poster, commentPost._id)
+                onClick: () => setCommentDelShow(true)
             }]
         })
 
-
 }, [])
+
 
 
 return (
@@ -39,7 +39,7 @@ return (
             </Col>
         </Col>
         <DeleteCommentModal show={commentDelShow} setShow={setCommentDelShow}
-            postId={postId} commentId={commentId} />
+            postId={commentPost.poster} commentId={commentPost._id} />
     </Col>
 )
 }

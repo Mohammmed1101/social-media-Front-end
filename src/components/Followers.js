@@ -23,7 +23,7 @@ export default function Followers(props) {
                                     <Col><span className="fw-bold">@{followersUser.username}</span></Col>
                                 </Col>
                             </Col>
-                            {/* <Col> <Button className="btn btn-sm ml-5">Follow</Button> </Col> */}
+                          
                         </Row>
                     </Card>
                 ))}

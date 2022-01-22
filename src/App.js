@@ -35,9 +35,8 @@ export default function App() {
   const [requestReject, setRequestReject] = useState(null)
   const [errorRequestReject, setErrorRequestReject] = useState(null)
   const [posts, setPost] = useState([])
-
   const [privatePosts, setPrivatePost] = useState([])
-  const [comments, setComments] = useState(null)
+
 
   const getProfile = async () => {
     const response = await axios.get("http://localhost:5000/api/auth/profile", {
@@ -511,7 +510,7 @@ export default function App() {
     errorRequest,
     logout,
     editProfile,
-    comments,
+   
     addComment,
     postLike,
     favouriteMessage,

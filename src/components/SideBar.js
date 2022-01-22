@@ -28,8 +28,8 @@ import { BsFillFilePostFill } from "react-icons/bs"
 const drawerWidth = 240
 
 export default function PermanentDrawerLeft() {
-  const {logout} = useContext(PostsContext)
-  
+  const { logout } = useContext(PostsContext)
+
   return (
     <ThemeProvider
       theme={createTheme({
@@ -54,8 +54,8 @@ export default function PermanentDrawerLeft() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            zIndex : "1",
-            marginTop : "50px"
+            zIndex: "1",
+            marginTop: "50px"
           },
         }}
         variant="permanent"
@@ -66,7 +66,7 @@ export default function PermanentDrawerLeft() {
             <ListItem button>
               <ListItemIcon >
                 < ChatIcon />
-               
+
               </ListItemIcon>
               <ListItemText primary="Direct Message" sx={{ color: "black", textDecoration: "none" }} />
             </ListItem>
@@ -82,13 +82,19 @@ export default function PermanentDrawerLeft() {
           <Link to="/private-posts">
             <ListItem button>
               <ListItemIcon>
-              <BsFillFilePostFill style={{fontSize : "20px"}}/>
+                <BsFillFilePostFill style={{ fontSize: "20px" }} />
               </ListItemIcon>
               <ListItemText primary="Private Post" sx={{ color: "black", textDecoration: "none" }} />
             </ListItem>
           </Link>
-           </List>
-           <List sx={{marginTop : "300px"}}>
+        </List>
+        <List sx={{
+          height: "40px",
+          position: "fixed",
+          bottom: "1%",
+          width: "100%",
+          opacity: "1"
+        }}>
           {localStorage.tokenSocial ? (
             <Link to="/login">
               <ListItem button>
@@ -99,13 +105,13 @@ export default function PermanentDrawerLeft() {
               </ListItem>
             </Link>
           ) : <Link to="/login">
-          <ListItem button>
-            <ListItemIcon>
-              <LoginIcon />
-            </ListItemIcon>
-            <ListItemText primary="login" sx={{ color: "black", textDecoration: "none" }} />
-          </ListItem>
-        </Link> }
+            <ListItem button>
+              <ListItemIcon>
+                <LoginIcon />
+              </ListItemIcon>
+              <ListItemText primary="login" sx={{ color: "black", textDecoration: "none" }} />
+            </ListItem>
+          </Link>}
         </List>
       </Drawer>
     </ThemeProvider>

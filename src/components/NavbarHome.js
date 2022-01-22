@@ -93,11 +93,12 @@ export default function NavbarHome(props) {
 
 
 
-        {/* <Button onClick={handleOverlay}> <FaUserClock /></Button> */}
+      
 
 
       </Container>
     </Navbar>
   )
 }
+
 

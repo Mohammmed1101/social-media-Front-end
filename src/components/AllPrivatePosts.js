@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { Col, Row } from "react-bootstrap";
 import { FaRegComment } from "react-icons/fa";
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";

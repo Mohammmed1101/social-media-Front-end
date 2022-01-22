@@ -24,7 +24,7 @@ export default function Following(props) {
                                     <Col><span className="fw-bold">@{followingUser.username}</span></Col>
                                 </Col>
                             </Col>
-                            {/* <Col> <Button className="btn btn-sm ml-5">Follow</Button> </Col> */}
+                           
                         </Row>
                     </Card>
                 ))}

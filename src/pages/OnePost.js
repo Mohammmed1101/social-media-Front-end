@@ -52,7 +52,7 @@ export default function OnePost() {
                 onClick: () => setEditShow(true)
             }, {
                 name: 'Delete',
-                onClick: () => deletePost(postId)
+                onClick: () => setDeleteShow(true)
 
 
             }]

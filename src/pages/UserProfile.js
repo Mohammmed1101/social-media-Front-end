@@ -19,7 +19,7 @@ export default function UserProfile() {
   const [followersModal, setFollowersModal] = useState(false)
   const [friendsModal, setFriendsModal] = useState(false)
 
-  const { getFollow, getUnFollow, profile, follow, unFollow, getRequest } = useContext(PostsContext)
+  const { getFollow, getUnFollow, profile, getRequest } = useContext(PostsContext)
 
   const { username } = useParams()
   const [userProfile, setUserProfile] = useState(null)
