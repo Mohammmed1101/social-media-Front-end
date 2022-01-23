@@ -8,13 +8,13 @@ import { useContext, useState } from "react"
 import PostsContext from "../utils/PostsContext"
 
 
-export default function NavbarHome(props) {
+export default function NavbarHome() {
 
-  const { usernameSearch, getRequest, getRequestAccept, getRequestReject, profile } = useContext(PostsContext)
+  const { usernameSearch, getRequestAccept, getRequestReject, profile } = useContext(PostsContext)
 
 
 
-  // const receive = request.receive_id?.find(r => r == r._id)
+ 
   const popover = (
     <Popover id="popover-basic" >
 
