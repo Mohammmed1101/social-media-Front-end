@@ -6,7 +6,7 @@ import PostsContext from "../utils/PostsContext"
 
 export default function AddMessage(props) {
     const { show, setShow, userProfile } = props
-    const {sendMessage, errorSendMessage} = useContext(PostsContext)
+    const { sendMessage, errorSendMessage } = useContext(PostsContext)
 
 
 

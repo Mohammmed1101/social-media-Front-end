@@ -74,12 +74,12 @@ export default function Login() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="http://localhost:3000/forgot-password" variant="body2">
+                <Link href="https://social-media-front-end-1.herokuapp.com/forgot-password" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="http://localhost:3000/signup" variant="body2">
+                <Link href="https://social-media-front-end-1.herokuapp.com/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

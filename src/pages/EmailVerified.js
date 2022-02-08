@@ -15,7 +15,7 @@ export default function EmailVerified() {
 
     const verifyEmailToken = async () => {
         try {
-            await axios.get(`http://localhost:5000/api/auth/verify_email/${token}`)
+            await axios.get(`https://social-media-api-12.herokuapp.com/api/auth/verify_email/${token}`)
             console.log("email verified")
             navigate("/login")
         } catch (error) {
@@ -29,17 +29,18 @@ export default function EmailVerified() {
     }, [])
 
     return error ? <h1>Verification failed </h1> : <>
-    
+
         <Box sx={{
-            width: 300, 
+            width: 300,
             position: "absolute",
-            top: "40%" ,
-            left: "38%" ,
-            textAlign: "center" }}>
-        <Skeleton />
-        <Skeleton aanimation="fitContent" />
-        <Skeleton animation={false} />
-    </Box>
+            top: "40%",
+            left: "38%",
+            textAlign: "center"
+        }}>
+            <Skeleton />
+            <Skeleton aanimation="fitContent" />
+            <Skeleton animation={false} />
+        </Box>
     </>
 
 }

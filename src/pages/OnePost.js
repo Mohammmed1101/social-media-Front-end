@@ -31,7 +31,7 @@ export default function OnePost() {
     console.log(liked)
     const getOnePost = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/posts/${postId}`)
+            const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/posts/${postId}`)
             setPostOne(response.data)
 
         } catch (error) {

@@ -15,15 +15,15 @@ export default function DirectMessage() {
 
 
     const getDM = async () => {
-      
-            const response = await axios.get(`http://localhost:5000/api/conversation/profile/${receiveId}/directMessage`, {
-                headers: {
-                    Authorization: localStorage.tokenSocial
-                },
-            })
-            setMessages(response.data)
-          
-        
+
+        const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/conversation/profile/${receiveId}/directMessage`, {
+            headers: {
+                Authorization: localStorage.tokenSocial
+            },
+        })
+        setMessages(response.data)
+
+
     }
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function DirectMessage() {
                 message: form.elements.message.value
             }
             form.reset()
-            await axios.post(`http://localhost:5000/api/conversation/profile/${receiveId}/directMessage`, messageBody, {
+            await axios.post(`https://social-media-api-12.herokuapp.com/api/conversation/profile/${receiveId}/directMessage`, messageBody, {
                 headers: {
                     Authorization: localStorage.tokenSocial
                 },
@@ -86,7 +86,7 @@ export default function DirectMessage() {
                                                                         </Col>
                                                                         <Col className="pt-1 m-auto">
                                                                             <span >{friend.firstName} {friend.lastName}</span>
-                                                                          
+
                                                                         </Col>
 
                                                                     </Row>
@@ -120,7 +120,7 @@ export default function DirectMessage() {
 
                                                     </Col>
                                                 </Link>
-                                                <hr/>
+                                                <hr />
                                                 {/* {friend ? */}
                                                 <ul style={{ listStyle: "none", position: "relative", height: "450px", overflowY: "auto" }}>
 
@@ -132,7 +132,7 @@ export default function DirectMessage() {
                                                                     <Col className="d-flex flex-row justify-content-start">
                                                                         <img src={profile.avatar} width="35" height="35" className="rounded-circle" />
                                                                         <Col>
-                                                                            <p className="small p-2 ms-3 mb-1 rounded-3" style={{ backgroundColor: "#f5f6f7" ,   textAlign: "left" }}>{message.message}</p>
+                                                                            <p className="small p-2 ms-3 mb-1 rounded-3" style={{ backgroundColor: "#f5f6f7", textAlign: "left" }}>{message.message}</p>
                                                                             <p className="small ms-3 mb-3 rounded-3 text-muted float-end ">{(new Date(message.Date)).toDateString()} {(new Date(message.Date)).toLocaleTimeString()} </p>
 
                                                                         </Col>
@@ -144,7 +144,7 @@ export default function DirectMessage() {
 
                                                                     <Col className="d-flex flex-row justify-content-end">
                                                                         <Col>
-                                                                            <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary" style={{textAlign: "left"}}>
+                                                                            <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary" style={{ textAlign: "left" }}>
                                                                                 {message.message}
                                                                             </p>
                                                                             <p className="small p-2 me-3 mb-1 rounded-3 text-muted"> {(new Date(message.Date)).toDateString()} {(new Date(message.Date)).toLocaleTimeString()}</p>
@@ -164,10 +164,10 @@ export default function DirectMessage() {
 
                                                 {/* input message  */}
                                                 <Row>
-                                                    <Col  className="text-muted d-flex justify-content-center align-items-center pe-3 pt-3 mt-2">
-                                                        <Form onSubmit={postDM} style={{width : "100%"}}>
+                                                    <Col className="text-muted d-flex justify-content-center align-items-center pe-3 pt-3 mt-2">
+                                                        <Form onSubmit={postDM} style={{ width: "100%" }}>
 
-                                                            <input type="textarea" name="message" className="form-control-lg" id="exampleFormControlInput2" placeholder="Type message" style={{width : "90%" }} />
+                                                            <input type="textarea" name="message" className="form-control-lg" id="exampleFormControlInput2" placeholder="Type message" style={{ width: "90%" }} />
                                                             <Button type="submit">Send</Button>
                                                         </Form>
                                                     </Col>

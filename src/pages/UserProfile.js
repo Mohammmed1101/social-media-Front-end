@@ -27,7 +27,7 @@ export default function UserProfile() {
 
   const getProSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/auth/profile/${username}`)
+      const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/auth/profile/${username}`)
       setUserProfile(response.data)
     } catch (error) {
       if (error.response)

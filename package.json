@@ -49,4 +49,9 @@
   "main": "index.js",
   "author": "",
   "license": "ISC"
-}
+
+  ,
+  "engines": {
+    "node": "16.x"
+  }
+} 

@@ -39,7 +39,7 @@ export default function App() {
 
 
   const getProfile = async () => {
-    const response = await axios.get("http://localhost:5000/api/auth/profile", {
+    const response = await axios.get("https://social-media-api-12.herokuapp.com/api/auth/profile", {
       headers: {
         Authorization: localStorage.tokenSocial
       },
@@ -48,7 +48,7 @@ export default function App() {
   }
   //get follow
   const getFollow = async userId => {
-    const response = await axios.get(`http://localhost:5000/api/auth/profile/${userId}/follow`, {
+    const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/auth/profile/${userId}/follow`, {
       headers: {
         Authorization: localStorage.tokenSocial
       },
@@ -58,7 +58,7 @@ export default function App() {
   }
   //get Unfollow
   const getUnFollow = async userId => {
-    const response = await axios.get(`http://localhost:5000/api/auth/profile/${userId}/unfollow`, {
+    const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/auth/profile/${userId}/unfollow`, {
       headers: {
         Authorization: localStorage.tokenSocial
       },
@@ -69,7 +69,7 @@ export default function App() {
   //request
   const getRequest = async receiveId => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/request/profile/${receiveId}/request`, {
+      const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/request/profile/${receiveId}/request`, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -85,7 +85,7 @@ export default function App() {
   //accept request
   const getRequestAccept = async requestId => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/request/profile/${requestId}/accept`, {
+      const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/request/profile/${requestId}/accept`, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -102,7 +102,7 @@ export default function App() {
   const getRequestReject = async requestId => {
     try {
       console.log(requestId)
-      const response = await axios.get(`http://localhost:5000/api/request/profile/${requestId}/reject`, {
+      const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/request/profile/${requestId}/reject`, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -119,7 +119,7 @@ export default function App() {
   //get public Post
   const getPublicPost = async () => {
 
-    const response = await axios.get("http://localhost:5000/api/posts/posts/Public", {
+    const response = await axios.get("https://social-media-api-12.herokuapp.com/api/posts/posts/Public", {
       headers: {
         Authorization: localStorage.tokenSocial
       },
@@ -128,7 +128,7 @@ export default function App() {
   }
   //get private Post
   const getPrivatePost = async () => {
-    const response = await axios.get("http://localhost:5000/api/posts/posts/Private", {
+    const response = await axios.get("https://social-media-api-12.herokuapp.com/api/posts/posts/Private", {
       headers: {
         Authorization: localStorage.tokenSocial
       },
@@ -148,7 +148,7 @@ export default function App() {
         type: "Public",
       }
       form.reset()
-      await axios.post("http://localhost:5000/api/posts", postBody, {
+      await axios.post("https://social-media-api-12.herokuapp.com/api/posts", postBody, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -172,7 +172,7 @@ export default function App() {
         type: "Private",
       }
       form.reset()
-      await axios.post("http://localhost:5000/api/posts", postBody, {
+      await axios.post("https://social-media-api-12.herokuapp.com/api/posts", postBody, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -198,7 +198,7 @@ export default function App() {
         image: form.elements.image.value,
 
       }
-      await axios.put(`http://localhost:5000/api/posts/${postId}`, postBody, {
+      await axios.put(`https://social-media-api-12.herokuapp.com/api/posts/${postId}`, postBody, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -216,7 +216,7 @@ export default function App() {
   const deletePost = async postId => {
     try {
 
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
+      await axios.delete(`https://social-media-api-12.herokuapp.com/api/posts/${postId}`, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -242,7 +242,7 @@ export default function App() {
       }
 
       form.reset()
-      await axios.post(`http://localhost:5000/api/posts/${postId}/comments`, commentBody, {
+      await axios.post(`https://social-media-api-12.herokuapp.com/api/posts/${postId}/comments`, commentBody, {
         headers: {
           Authorization: localStorage.tokenSocial,
         },
@@ -260,7 +260,7 @@ export default function App() {
   const deleteComment = async (postId, commentId) => {
     try {
 
-      await axios.delete(`http://localhost:5000/api/posts/${postId}/comments/${commentId}`, {
+      await axios.delete(`https://social-media-api-12.herokuapp.com/api/posts/${postId}/comments/${commentId}`, {
         headers: {
           Authorization: localStorage.tokenSocial
         },
@@ -301,7 +301,7 @@ export default function App() {
 
       }
 
-      await axios.post("http://localhost:5000/api/auth/signup", userBody)
+      await axios.post("https://social-media-api-12.herokuapp.com/api/auth/signup", userBody)
       console.log("signup success")
       setErrorSignUp(null)
       navigate("/login")
@@ -327,7 +327,7 @@ export default function App() {
           password: form.elements.password.value,
         }
 
-      const response = await axios.post("http://localhost:5000/api/auth/login", userBody)
+      const response = await axios.post("https://social-media-api-12.herokuapp.com/api/auth/login", userBody)
 
       const token = response.data
       localStorage.tokenSocial = token
@@ -355,7 +355,7 @@ export default function App() {
           username: emailOrUsername,
         }
 
-      await axios.post("http://localhost:5000/api/auth/forgot-password", userBody)
+      await axios.post("https://social-media-api-12.herokuapp.com/api/auth/forgot-password", userBody)
       setErrorForgetPassword(null)
       setSuccessForgetPassword("password resent link is sent , go check your email")
 
@@ -376,7 +376,7 @@ export default function App() {
         password: password,
       }
 
-      await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, userBody)
+      await axios.post(`https://social-media-api-12.herokuapp.com/api/auth/reset-password/${token}`, userBody)
       console.log("password reset")
       setErrorResetPassword(null)
       navigate("/login")
@@ -403,7 +403,7 @@ export default function App() {
         message: form.elements.message.value
       }
 
-      await axios.post(`http://localhost:5000/api/messages/profile/${userProfileId}/message`, messsageBody, {
+      await axios.post(`https://social-media-api-12.herokuapp.com/api/messages/profile/${userProfileId}/message`, messsageBody, {
         headers: {
           Authorization: localStorage.tokenSocial,
         },
@@ -419,7 +419,7 @@ export default function App() {
   //______________________________________________like_____________________________________________//
   const postLike = async postId => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/posts/${postId}/likes`, {
+      const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/posts/${postId}/likes`, {
         headers: {
           Authorization: localStorage.tokenSocial,
         },
@@ -435,7 +435,7 @@ export default function App() {
   //____________________________________________favourite_____________________________________________//
   const favouriteMessage = async id => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/messages/profile/${id}/favourite`, {
+      const response = await axios.get(`https://social-media-api-12.herokuapp.com/api/messages/profile/${id}/favourite`, {
         headers: {
           Authorization: localStorage.tokenSocial,
         },
@@ -457,7 +457,7 @@ export default function App() {
         firstName: form.elements.firstName.value,
         lastName: form.elements.lastName.value,
       }
-      await axios.put("http://localhost:5000/api/auth/profile/edit", profileBody, {
+      await axios.put("https://social-media-api-12.herokuapp.com/api/auth/profile/edit", profileBody, {
         headers: {
           Authorization: localStorage.tokenSocial,
         },
@@ -510,7 +510,7 @@ export default function App() {
     errorRequest,
     logout,
     editProfile,
-   
+
     addComment,
     postLike,
     favouriteMessage,
